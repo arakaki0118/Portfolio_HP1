@@ -1,0 +1,929 @@
+@charset "UTF-8";
+body {
+  color: #333;
+  font-family: "游ゴシック体", "YuGothic", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+  letter-spacing: 0.1em;
+  /*----------------------------
+  * 共通CSS
+  *----------------------------*/
+  /*----------------------------
+  * ヘッダー
+  *----------------------------*/
+  /* 共通タイトル */
+  /* footer */
+}
+body .flexRow {
+  display: flex;
+  flex-direction: row;
+}
+body .flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+body header {
+  max-width: 100%;
+  /* ヘッダーコンテンツ */
+}
+body header .headerBox {
+  height: 100px;
+  justify-content: space-between;
+  align-items: flex-start;
+  /* ハンバーガーメニュー表示の時のロゴ表記 */
+  /* ハンバーガーメニュー */
+}
+@media screen and (max-width: 900px) {
+  body header .headerBox {
+    height: 100px;
+  }
+}
+body header .headerBox .headerLogo {
+  width: 130px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .headerLogo {
+    width: 120px;
+    margin-left: 15px;
+    margin-top: 0px;
+  }
+}
+body header .headerBox .headerLogo h2 {
+  font-size: 45px;
+  font-weight: bold;
+  color: #ff2a2a;
+  letter-spacing: 0.3rem;
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .headerLogo h2 {
+    letter-spacing: 0.1rem;
+  }
+}
+body header .headerBox .headerLogo p {
+  color: #ff2a2a;
+  letter-spacing: 0;
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .headerLogo p {
+    font-size: 16px;
+  }
+}
+body header .headerBox .headerLogo h2.change,
+body header .headerBox .headerLogo p.change {
+  z-index: 100;
+  transition: opacity 0.3s linear;
+  color: #fff;
+}
+body header .headerBox .headerLogo.fixed {
+  position: fixed;
+  bottom: 413px;
+  opacity: 1;
+  z-index: 100;
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .headerLogo.fixed {
+    bottom: 423px;
+  }
+}
+body header .headerBox .humbergerMenu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  width: 100px;
+  height: 100px;
+  background-color: #ff2a2a;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.3s linear;
+}
+body header .headerBox .humbergerMenu:hover {
+  opacity: 0.7;
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .humbergerMenu {
+    width: 75px;
+    height: 75px;
+  }
+}
+body header .headerBox .humbergerMenu .humbergerMenuBtn {
+  width: 50px;
+  height: 2px;
+  background-color: #fff;
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .humbergerMenu .humbergerMenuBtn {
+    width: 35px;
+  }
+}
+body header .headerBox .humbergerMenu .humbergerMenuBtn::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  transform: translateY(-13px);
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .humbergerMenu .humbergerMenuBtn::before {
+    transform: translateY(-10px);
+  }
+}
+body header .headerBox .humbergerMenu .humbergerMenuBtn::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #fff;
+  transform: translateY(13px);
+}
+@media screen and (max-width: 960px) {
+  body header .headerBox .humbergerMenu .humbergerMenuBtn::after {
+    transform: translateY(10px);
+  }
+}
+body header .headerBox .humbergerMenu .humbergerMenuBtn.active {
+  z-index: 100;
+  height: 0;
+}
+body header .headerBox .humbergerMenu .humbergerMenuBtn.active::before {
+  transform: rotate(-45deg);
+  box-shadow: none;
+}
+body header .headerBox .humbergerMenu .humbergerMenuBtn.active::after {
+  transform: rotate(45deg);
+  box-shadow: none;
+}
+body header .headerBox .nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: flex-start;
+  background: #ff2a2a;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+body header .headerBox .nav ul {
+  list-style: none;
+  padding: 50px;
+}
+body header .headerBox .nav ul li {
+  margin-top: 25px;
+  text-align: center;
+}
+body header .headerBox .nav ul li a {
+  color: #fff;
+  font-weight: bold;
+}
+body header .headerBox .nav .navMenuBtn {
+  width: 250px;
+  height: 60px;
+  border: 1px solid #fff;
+  text-align: center;
+  position: relative;
+}
+body header .headerBox .nav .navMenuBtn::after {
+  content: "";
+  width: 250px;
+  height: 60px;
+  position: absolute;
+  right: -7px;
+  bottom: -7px;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+body header .headerBox .nav .navMenuBtn a {
+  color: #fff;
+  font-weight: bold;
+}
+body header .headerBox .nav.open {
+  pointer-events: auto;
+  opacity: 1;
+  z-index: 99;
+}
+body header .headerContents {
+  width: 100%;
+  height: 800px;
+  position: relative;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents {
+    height: 480px;
+  }
+}
+body header .headerContents .headerContentTxt {
+  position: absolute;
+  z-index: 10;
+  top: 270px;
+  left: 140px;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents .headerContentTxt {
+    top: 330px;
+    left: 15px;
+  }
+}
+body header .headerContents .headerContentTxt h2 {
+  font-size: 45px;
+  font-weight: bold;
+  text-shadow: #fff 2px 2px 3px;
+  line-height: 1.5;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents .headerContentTxt h2 {
+    font-size: 28px;
+    text-shadow: none;
+  }
+}
+body header .headerContents .headerContentTxt .headerContentBtn {
+  margin-top: 30px;
+  width: 420px;
+  height: 70px;
+  background-color: #ff2a2a;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents .headerContentTxt .headerContentBtn {
+    margin-top: 10px;
+    width: 95vw;
+  }
+}
+body header .headerContents .headerContentTxt .headerContentBtn::after {
+  content: "";
+  width: 420px;
+  height: 70px;
+  position: absolute;
+  bottom: -5px;
+  background-color: #dc143c;
+  border-radius: 10px;
+  z-index: -1;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents .headerContentTxt .headerContentBtn::after {
+    width: 95vw;
+  }
+}
+body header .headerContents .headerContentTxt .headerContentBtn p {
+  font-size: 24px;
+  color: #fff;
+  position: relative;
+}
+body header .headerContents .headerContentTxt .headerContentBtn .arrow-right {
+  position: absolute;
+  right: 20px;
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid #fff;
+  border-right: 4px solid #fff;
+  transform: rotate(45deg);
+}
+body header .headerContents .headerContentImg {
+  position: absolute;
+  right: 0;
+  width: 80%;
+  height: auto;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents .headerContentImg {
+    width: 100vw;
+  }
+}
+body header .headerContents .headerContentImg .p-swiper-container {
+  position: relative;
+}
+body header .headerContents .headerContentImg .p-swiper-container .swiper-wrapper .swiper-slide {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: relative;
+}
+body header .headerContents .headerContentImg .p-swiper-container .swiper-wrapper .swiper-slide::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0 0 15px 15px #fff;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents .headerContentImg .p-swiper-container .swiper-wrapper .swiper-slide::after {
+    height: 30%;
+  }
+}
+body header .headerContents .headerContentImg .p-swiper-container .swiper-wrapper .swiper-slide img {
+  width: 100%;
+  height: 70%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: inline-block;
+}
+@media screen and (max-width: 960px) {
+  body header .headerContents .headerContentImg .p-swiper-container .swiper-wrapper .swiper-slide img {
+    height: 30%;
+  }
+}
+body main {
+  /* topSection */
+  /* secondSection */
+  /* thirdSection */
+  /* fourSection */
+}
+body main .commonTitle {
+  text-align: center;
+  margin-top: 20px;
+  position: relative;
+}
+body main .commonTitle::after {
+  position: absolute;
+  content: " ";
+  width: 100px;
+  top: 60px;
+  border: 1.5px solid black;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+}
+@media screen and (max-width: 960px) {
+  body main .commonTitle::after {
+    width: 80px;
+  }
+}
+body main .commonTitle p {
+  font-size: 36px;
+  font-weight: bold;
+}
+@media screen and (max-width: 960px) {
+  body main .commonTitle p {
+    font-size: 28px;
+  }
+}
+body main .topSection {
+  margin-top: 80px;
+}
+body main .topSection .topSectionBox {
+  width: 100%;
+  height: 420px;
+  background-color: #ff2a2a;
+  margin-top: 80px;
+  position: relative;
+}
+body main .topSection .topSectionBox .topSectionBoxContent1 {
+  opacity: 0;
+  width: 50%;
+  height: 200px;
+  background-color: #fff;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 80px;
+  transform: translate(-100px, 0);
+  transition: all 0.5s;
+}
+@media screen and (max-width: 960px) {
+  body main .topSection .topSectionBox .topSectionBoxContent1 {
+    width: 95%;
+    height: 150px;
+    top: 40px;
+  }
+}
+body main .topSection .topSectionBox .topSectionBoxContent1 img {
+  width: 90px;
+  margin-right: 40px;
+}
+body main .topSection .topSectionBox .topSectionBoxContent1 .topSectionBoxContentTxt1 h2 {
+  color: #ff2a2a;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+@media screen and (max-width: 960px) {
+  body main .topSection .topSectionBox .topSectionBoxContent1 .topSectionBoxContentTxt1 h2 {
+    font-size: 26px;
+  }
+}
+body main .topSection .topSectionBox .topSectionBoxContent1 .topSectionBoxContentTxt1 p {
+  font-size: 18px;
+}
+body main .topSection .topSectionBox .topSectionBoxContent1.move {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+body main .topSection .topSectionBox .topSectionBoxContent2 {
+  opacity: 0;
+  width: 50%;
+  height: 200px;
+  background-color: #fff;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 350px;
+  transform: translate(100px, 0);
+  transition: all 0.5s;
+}
+@media screen and (max-width: 960px) {
+  body main .topSection .topSectionBox .topSectionBoxContent2 {
+    width: 95%;
+    height: 150px;
+    top: 230px;
+  }
+}
+body main .topSection .topSectionBox .topSectionBoxContent2 img {
+  width: 50px;
+  margin-right: 40px;
+}
+body main .topSection .topSectionBox .topSectionBoxContent2 .topSectionBoxContentTxt2 h2 {
+  color: #ff2a2a;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+@media screen and (max-width: 960px) {
+  body main .topSection .topSectionBox .topSectionBoxContent2 .topSectionBoxContentTxt2 h2 {
+    font-size: 26px;
+  }
+}
+body main .topSection .topSectionBox .topSectionBoxContent2 .topSectionBoxContentTxt2 p {
+  font-size: 18px;
+}
+body main .topSection .topSectionBox .topSectionBoxContent2.move {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+body main .secondSection {
+  margin-top: 80px;
+}
+body main .secondSection .secondSectionBox {
+  margin-top: 80px;
+  width: 100%;
+  height: 600px;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox {
+    height: 750px;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent {
+  opacity: 0;
+  width: 70%;
+  height: 180px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContent {
+    width: 90%;
+    flex-direction: column-reverse;
+    margin-top: 100px;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionBoxContentImg {
+  width: 130px;
+  height: 130px;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionBoxContentImg {
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionBoxContentImg img {
+  width: 100%;
+  background-color: gray;
+  border-radius: 50%;
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionBoxContentImg .secondSectionContentImgTxt {
+  text-align: center;
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionBoxContentImg .secondSectionContentImgTxt p {
+  margin-top: 5px;
+  font-size: 12px;
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionContentTxt {
+  display: inline-block;
+  position: relative;
+  width: 40%;
+  margin: 5px 0 0 40px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionContentTxt {
+    width: 100%;
+    margin: 0;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionContentTxt::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 60px;
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid #d7ebfe;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionContentTxt::after {
+    width: 20px;
+    left: 48%;
+    top: 65px;
+    border: 12px solid transparent;
+    border-top: 12px solid #d7ebfe;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionContentTxt p {
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContent .secondSectionContentTxt p {
+    font-size: 14px;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContent.move {
+  opacity: 1;
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev {
+  opacity: 0;
+  width: 70%;
+  height: 180px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0, 0);
+  transition: all 1s;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContentRev {
+    width: 100%;
+    flex-direction: column-reverse;
+    margin: 100px auto;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionBoxContentImg {
+  width: 130px;
+  height: 130px;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionBoxContentImg {
+    width: 100px;
+    height: 100px;
+    margin-top: 50px;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionBoxContentImg img {
+  width: 100%;
+  background-color: gray;
+  border-radius: 50%;
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionBoxContentImg .secondSectionContentImgTxt {
+  text-align: center;
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionBoxContentImg .secondSectionContentImgTxt p {
+  margin-top: 5px;
+  font-size: 12px;
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionContentTxt {
+  display: inline-block;
+  position: relative;
+  width: 40%;
+  margin: 5px 40px 0 0;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionContentTxt {
+    width: 90%;
+    margin: 0;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionContentTxt::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 60px;
+  right: -24px;
+  border: 12px solid transparent;
+  border-left: 12px solid #d7ebfe;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionContentTxt::after {
+    width: 20px;
+    left: 48%;
+    top: 65px;
+    border: 12px solid transparent;
+    border-top: 12px solid #d7ebfe;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionContentTxt p {
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 960px) {
+  body main .secondSection .secondSectionBox .secondSectionBoxContentRev .secondSectionContentTxt p {
+    font-size: 14px;
+  }
+}
+body main .secondSection .secondSectionBox .secondSectionBoxContentRev.move {
+  opacity: 1;
+}
+body main .thirdSection {
+  width: 100%;
+  height: 900px;
+  background: url("../images/bg.gif") repeat;
+  -webkit-animation: fall 10s infinite linear;
+          animation: fall 10s infinite linear;
+  padding: 60px 0;
+  margin-bottom: 120px;
+  margin-top: 80px;
+}
+@-webkit-keyframes fall {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -700px 700px;
+  }
+}
+@keyframes fall {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -700px 700px;
+  }
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection {
+    padding: 40px 0;
+  }
+}
+body main .thirdSection .thirdSectionBox {
+  margin-top: 100px;
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection .thirdSectionBox {
+    margin-top: 80px;
+  }
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop {
+    flex-direction: column;
+  }
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop .thirdSectionBoxContent {
+  width: 450px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop .thirdSectionBoxContent {
+    width: 95%;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop .thirdSectionBoxContent h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop .thirdSectionBoxContent h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop .thirdSectionBoxContent p {
+  margin-top: 40px;
+  width: 250px;
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsTop .thirdSectionBoxContent p {
+    width: 95%;
+    text-align: center;
+  }
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom {
+    flex-direction: column;
+    margin-top: 0;
+  }
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom .thirdSectionBoxContent {
+  width: 450px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom .thirdSectionBoxContent {
+    width: 95%;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom .thirdSectionBoxContent h2 {
+  font-size: 26px;
+  font-weight: bold;
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom .thirdSectionBoxContent h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom .thirdSectionBoxContent p {
+  margin-top: 40px;
+  width: 250px;
+}
+@media screen and (max-width: 960px) {
+  body main .thirdSection .thirdSectionBox .thirdSectionBoxContentsBottom .thirdSectionBoxContent p {
+    width: 95%;
+    text-align: center;
+  }
+}
+body main .fourSection {
+  width: 100%;
+  height: 300px;
+}
+@media screen and (max-width: 960px) {
+  body main .fourSection {
+    height: 250px;
+  }
+}
+body main .fourSection .fourSectionBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main .fourSection .fourSectionBox .fourSectionBoxTxt {
+  text-align: center;
+}
+body main .fourSection .fourSectionBox .fourSectionBoxTxt h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+@media screen and (max-width: 960px) {
+  body main .fourSection .fourSectionBox .fourSectionBoxTxt h2 {
+    font-size: 24px;
+  }
+}
+body main .fourSection .fourSectionBox .fourSectionBoxTxt p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media screen and (max-width: 960px) {
+  body main .fourSection .fourSectionBox .fourSectionBoxTxt p {
+    font-size: 16px;
+  }
+}
+body main .fourSection .fourSectionBox .fourSectionBoxBtn {
+  margin-top: 30px;
+}
+body main .fourSection .fourSectionBox .fourSectionBoxBtn button {
+  width: 800px;
+  height: 80px;
+  background-color: #ff2a2a;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  transition: 0.5s;
+}
+@media screen and (max-width: 960px) {
+  body main .fourSection .fourSectionBox .fourSectionBoxBtn button {
+    width: 700px;
+    font-size: 24px;
+  }
+}
+body main .fourSection .fourSectionBox .fourSectionBoxBtn button:hover {
+  background-color: #fff;
+  color: #ff2a2a;
+  border: 3px solid #ff2a2a;
+}
+body footer {
+  width: 100%;
+  height: 520px;
+  background-color: #e8e8e8;
+}
+body footer .footerBox {
+  width: 100%;
+  height: 100%;
+  padding-top: 60px;
+}
+@media screen and (max-width: 960px) {
+  body footer .footerBox {
+    padding-top: 30px;
+  }
+}
+body footer .footerBox .footerBoxContents {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+body footer .footerBox .footerBoxContents .footerBoxContent {
+  margin: 0 40px;
+}
+@media screen and (max-width: 960px) {
+  body footer .footerBox .footerBoxContents .footerBoxContent {
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 40px;
+    width: 45%;
+  }
+}
+body footer .footerBox .footerBoxContents .footerBoxContent h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+@media screen and (max-width: 960px) {
+  body footer .footerBox .footerBoxContents .footerBoxContent h2 {
+    font-size: 14px;
+  }
+}
+body footer .footerBox .footerBoxContents .footerBoxContent ul {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+body footer .footerBox .footerBoxContents .footerBoxContent ul li a {
+  font-size: 14px;
+  line-height: 2;
+}
+@media screen and (max-width: 960px) {
+  body footer .footerBox .footerBoxContents .footerBoxContent ul li a {
+    font-size: 12px;
+  }
+}
+body footer small {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+}
+@media screen and (max-width: 960px) {
+  body footer small {
+    font-size: 10px;
+    margin-top: 100px;
+  }
+}/*# sourceMappingURL=style.css.map */
